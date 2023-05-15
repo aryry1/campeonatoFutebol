@@ -25,6 +25,9 @@ app.use(function (request, response, next) {
     }
 })
 
+app.get("/", async (req, res) => {
+    return res.json({message: "Bem Vinde"})
+})
 
 app.post("/jogador/cadastro", upload.single("foto"), cadastrarNovoJogador)
 app.get("/jogadores", buscaTodosJogadores)
