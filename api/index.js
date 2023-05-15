@@ -40,4 +40,6 @@ app.delete("/time/remove", removeTimeById)
 
 app.get("/sorteio_jogos", sorteioJogos)
 
-module.exports = app
+app.listen(process.env.PORT || 3033, () => {
+    console.log("Service runnig in port ", process.env.PORT)
+})
