@@ -7,9 +7,9 @@ const cors = require('cors')
 const multer = require('multer')
 const upload = multer()
 
-const { cadastrarNovoJogador, buscaTodosJogadores, listaJogadoresTime, atualizaJogador, removeJogadorById } = require("../controllers/jogadorRouter")
-const { cadastraNovoTime, atualizaTime, buscaTimes, buscaTimeByNome, removeTimeById } = require("../controllers/timeRouter")
-const { sorteioJogos } = require("../controllers/sorteioRoute")
+const { cadastrarNovoJogador, buscaTodosJogadores, listaJogadoresTime, atualizaJogador, removeJogadorById } = require("./controllers/jogadorRouter")
+const { cadastraNovoTime, atualizaTime, buscaTimes, buscaTimeByNome, removeTimeById } = require("./controllers/timeRouter")
+const { sorteioJogos } = require("./controllers/sorteioRoute")
 
 mongoose.connect(process.env.DATABASE_CONNECT)
 
@@ -43,6 +43,8 @@ app.delete("/time/remove", removeTimeById)
 
 app.get("/sorteio_jogos", sorteioJogos)
 
-app.listen(process.env.PORT || 3033, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log("Service runnig in port ", process.env.PORT)
 })
+
+module.exports = app
